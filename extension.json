@@ -47,8 +47,10 @@
                 },
                 {
                     "key": "com.chrissardegna.autopep8Args",
-                    "title": "CLI arguments, --in-place is set implicitly",
-                    "type": "string"
+                    "title": "CLI arguments",
+                    "description": "Use `autopep8 --help` for a full list of arguments. Note: `--in-place` is set implicitly.",
+                    "type": "string",
+                    "placeholder": "--aggressive"
                 }
             ]
         }
