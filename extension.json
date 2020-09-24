@@ -5,6 +5,7 @@
     "description": "Provides autopep8 formatter to Nova's command pallete.",
     "version": "1.0",
     "categories": ["commands"],
+    "bugs": "https://github.com/ReagentX/Nova-autopep8",
 
     "main": "main.js",
 
