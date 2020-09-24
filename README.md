@@ -1,14 +1,14 @@
 # Nova + autopep8
 
-Provides a native method for invoking the autopep8 Python file formatter CLI tool. It will format the currently active file.
+Provides a native method for invoking the `autopep8` Python file formatter CLI tool. It will format the currently active file.
 
 ## Installation
 
-`⌘⇧2` to open the extension panel. Search for `autopep8`
+`⌘⇧2` to open the extension panel. Search for `autopep8`.
 
 ## Usage
 
-`⌘⇧P` to open the extension panel, then start typing `Format Python file`
+`⌘⇧P` to open the command palette, then start typing `Format Python file`.
 
 ## Configuration
 
