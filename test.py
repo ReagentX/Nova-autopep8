@@ -1,3 +1,6 @@
+"""
+Adapted from https://pypi.org/project/autopep8/#usage
+"""
 import math, sys;
 
 def example1():
