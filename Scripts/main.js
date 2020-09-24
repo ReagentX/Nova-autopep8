@@ -1,12 +1,3 @@
-
-exports.activate = function() {
-    // Do work when the extension is activated
-}
-
-exports.deactivate = function() {
-    // Clean up state before the extension is deactivated
-}
-
 nova.commands.register("autopep8.runAutopep8", (workspace) => {
     const enabled=nova.config.get('com.chrissardegna.autopep8Enabled')
     const autopep8=nova.config.get('com.chrissardegna.autopep8ExecPath')
@@ -14,8 +5,6 @@ nova.commands.register("autopep8.runAutopep8", (workspace) => {
     let currentFile=workspace.activeTextEditor.document.path
 
     if (currentFile) {
-        // Add quotes to handle spaces in file paths to the CLI
-        // currentFile = `'${currentFile}'`
         let cliArgs = ['--in-place']
 
         if (autopep8Args) {
@@ -30,8 +19,7 @@ nova.commands.register("autopep8.runAutopep8", (workspace) => {
 
         try {
             let p = new Process(autopep8, {
-                args: cliArgs,
-                shell: true
+                args: cliArgs
             })
             p.start()
         } catch(err) {
