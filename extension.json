@@ -2,8 +2,8 @@
     "identifier": "com.chrissardegna.autopep8",
     "name": "autopep8",
     "organization": "Christopher Sardegna",
-    "description": "Provides autopep8 formatter to Nova's command pallete.",
-    "version": "1.0",
+    "description": "Provides autopep8's formatting power to Nova's command pallete.",
+    "version": "1.0.1",
     "categories": ["commands"],
     "bugs": "https://github.com/ReagentX/Nova-autopep8",
 
