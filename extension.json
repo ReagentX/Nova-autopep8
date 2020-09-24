@@ -1,0 +1,40 @@
+{
+    "identifier": "com.chrissardegna.autopep8",
+    "name": "autopep8",
+    "organization": "Christopher Sardegna",
+    "description": "Lorem ipsum, dolor sit amet.",
+    "version": "1.0",
+    "categories": ["commands"],
+    
+    "main": "main.js",
+    
+    "activationEvents": [
+        "onLanguage:html"
+    ],
+    
+    "entitlements": {
+        "process": true
+    },
+    
+    "commands": {
+        "extensions": [
+            {
+                "title": "Open URL",
+                "command": "autopep8.openURL"
+            },
+            {
+                "title": "Run External Tool",
+                "command": "autopep8.runExternalTool"
+            }
+        ]
+    },
+    
+    "config": [
+        {
+            "key": "autopep8.foobar",
+            "title": "Foo the bar",
+            "type": "boolean",
+            "default": false
+        }
+    ]
+}
