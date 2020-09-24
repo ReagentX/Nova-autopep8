@@ -2,39 +2,54 @@
     "identifier": "com.chrissardegna.autopep8",
     "name": "autopep8",
     "organization": "Christopher Sardegna",
-    "description": "Lorem ipsum, dolor sit amet.",
+    "description": "Provides autopep8 formatter to Nova's command pallete.",
     "version": "1.0",
     "categories": ["commands"],
-    
+
     "main": "main.js",
-    
+
     "activationEvents": [
-        "onLanguage:html"
+        "onLanguage:python"
     ],
-    
+
     "entitlements": {
         "process": true
     },
-    
+
     "commands": {
         "extensions": [
             {
-                "title": "Open URL",
-                "command": "autopep8.openURL"
-            },
-            {
-                "title": "Run External Tool",
-                "command": "autopep8.runExternalTool"
+                "title": "Format Python file",
+                "command": "autopep8.runAutopep8"
             }
         ]
     },
-    
+
     "config": [
         {
-            "key": "autopep8.foobar",
-            "title": "Foo the bar",
-            "type": "boolean",
-            "default": false
+            "title": "autopep8 Preferences",
+            "description": "Configure autopep8 behaviors",
+            "type": "section",
+            "children": [
+                {
+                    "key": "com.chrissardegna.autopep8Enabled",
+                    "title": "Enable autopep8",
+                    "type": "boolean",
+                    "default": true
+                },
+                {
+                    "key": "com.chrissardegna.autopep8ExecPath",
+                    "title": "Executable Path",
+                    "type": "path",
+                    "description": "Manually set the fully qualified path for the autopep8 executable.",
+                    "placeholder": "/venv/bin/autopep8"
+                },
+                {
+                    "key": "com.chrissardegna.autopep8Args",
+                    "title": "CLI arguments, --in-place is set implicitly",
+                    "type": "string"
+                }
+            ]
         }
     ]
 }

@@ -7,51 +7,35 @@ exports.deactivate = function() {
     // Clean up state before the extension is deactivated
 }
 
+nova.commands.register("autopep8.runAutopep8", (workspace) => {
+    const enabled=nova.config.get('com.chrissardegna.autopep8Enabled')
+    const autopep8=nova.config.get('com.chrissardegna.autopep8ExecPath')
+    const autopep8Args=nova.config.get('com.chrissardegna.autopep8Args')
+    let currentFile=workspace.activeTextEditor.document.path
 
-nova.commands.register("autopep8.openURL", (workspace) => {
-    var options = {
-        "placeholder": "https://foobar.com",
-        "prompt": "Open"
-    };
-    nova.workspace.showInputPanel("Enter the URL to open:", options, function(result) {
-        if (result) {
-            nova.openURL(result, function(success) {
-                
-            });
+    if (currentFile) {
+        // Add quotes to handle spaces in file paths to the CLI
+        // currentFile = `'${currentFile}'`
+        let cliArgs = ['--in-place']
+
+        if (autopep8Args) {
+            const parsedAutopep8Args = autopep8Args.split(' ')
+            parsedAutopep8Args.push(currentFile)
+            cliArgs.push(...parsedAutopep8Args)
+        } else {
+            cliArgs.push(currentFile)
         }
-    });
-});
 
+        console.log(`Executing ${autopep8} ${cliArgs.join(' ')}`)
 
-nova.commands.register("autopep8.runExternalTool", (workspace) => {
-    var options = {
-        "placeholder": "/path/to/tool",
-        "prompt": "Run"
-    };
-    nova.workspace.showInputPanel("Enter the path to the external tool:", options, function(result) {
-        if (result) {
-            var options = {
-                // "args": [],
-                // "env": {},
-                // "stdin": <any buffer or string>
-            };
-            
-            var process = new Process(result, options);
-            var lines = [];
-            
-            process.onStdout(function(data) {
-                if (data) {
-                    lines.push(data);
-                }
-            });
-            
-            process.onDidExit(function(status) {
-                var string = "External Tool Exited with Stdout:\n" + lines.join("");
-                nova.workspace.showInformativeMessage(string);
-            });
-            
-            process.start();
+        try {
+            let p = new Process(autopep8, {
+                args: cliArgs,
+                shell: true
+            })
+            p.start()
+        } catch(err) {
+            console.error(`autopep8 error: ${err}`)
         }
-    });
-});
-
+    }
+})
