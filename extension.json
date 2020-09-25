@@ -3,9 +3,10 @@
     "name": "autopep8",
     "organization": "Christopher Sardegna",
     "description": "Provides autopep8's formatting power to Nova's command pallete.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "categories": ["commands", "formatters"],
-    "bugs": "https://github.com/ReagentX/Nova-autopep8",
+    "repository": "https://github.com/ReagentX/Nova-autopep8",
+    "bugs": "https://github.com/ReagentX/Nova-autopep8/issues",
 
     "main": "main.js",
 
