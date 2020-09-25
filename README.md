@@ -26,7 +26,7 @@ These are the arguments passed to `autopep8` before appending the current file t
 
 By default no arguments are set. If we add `--aggressive --aggressive` to this section, the command generated will look like:
 
-```bash
+```
 /path/to/autopep8 --in-place --aggressive --aggressive /path/to/current/file
 ```
 
