@@ -3,25 +3,26 @@
     "name": "autopep8",
     "organization": "Christopher Sardegna",
     "description": "Provides autopep8's formatting power to Nova's command pallete.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "categories": ["commands"],
     "bugs": "https://github.com/ReagentX/Nova-autopep8",
 
     "main": "main.js",
-
-    "activationEvents": [
-        "onLanguage:python"
-    ],
 
     "entitlements": {
         "process": true
     },
 
     "commands": {
-        "extensions": [
+        "command-palette": [
             {
-                "title": "Format Python file",
-                "command": "autopep8.runAutopep8"
+                "title": "Format Python file with autopep8",
+                "paletteTitle": "Format Python file",
+                "command": "autopep8.runAutopep8",
+                "when": "editorSyntax == 'python'",
+                "filters": {
+                    "syntaxes": ["python"]
+                }
             }
         ]
     },
